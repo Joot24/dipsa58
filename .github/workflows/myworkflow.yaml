@@ -1,3 +1,7 @@
+# ubuntu
+# - setup your runtime (eg. dotnet, node, etc.)
+# - check out your source  https://github.com/marketplace/actions/checkout
+
 name: My first workflow
 
 # trigger
@@ -8,13 +12,18 @@ jobs:
     # give job a name
     my-first-job:
         # runner using ubuntu to run
-        # google github action runners for others
+        # github action runners https://github.com/actions/runner-images#available-environments for others. some require payment
         runs-on: ubuntu-latest    
 
         # steps of this job
         steps:
         - name: echo the date
           run: echo "hello, Github Action $(date)"
+
+        - name: checkout source code
+          uses: actions/checkout@v4
+          with:
+            ref: ${{ github.base_ref }}
 
         - name: echo the git branch
           run: echo "hello, the Github branch is ${{ github.ref_name }}, ${{ github.repositoryUrl }}"
@@ -26,4 +35,6 @@ jobs:
             text: "I am on branch ${{ github.base_ref}}"
             color: 'red'
 
+
+        # to install dotnet on ubuntu, https://github.com/marketplace/actions/setup-dotnet
   
