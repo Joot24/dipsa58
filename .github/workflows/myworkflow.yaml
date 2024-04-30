@@ -1,0 +1,21 @@
+name: My first workflow
+
+# trigger
+on: 
+- push
+
+jobs:
+    # give job a name
+    my-first-job:
+        # runner using ubuntu to run
+        # google github action runners for others
+        runs-on: ubuntu-latest    
+
+        # steps of this job
+        steps:
+        - name: echo the date
+          run: echo "hello, Github Action $(date)"
+
+        - name: echo the git branch
+          run: echo "hello, the Github branch is ${{ github.ref_name }}, ${{ github.repositoryUrl }}"
+  
