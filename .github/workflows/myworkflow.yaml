@@ -21,7 +21,7 @@ jobs:
           run: echo "hello, Github Action $(date)"
 
         - name: list directory before checkout
-          run: ls - l
+          run: ls -l
 
         - name: checkout source code
           uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
             ref: ${{ github.base_ref }}
 
         - name: list directory
-          run: ls - l
+          run: ls -l
 
         - name: echo the git branch
           run: echo "hello, the Github branch is ${{ github.ref_name }}, ${{ github.repositoryUrl }}"
